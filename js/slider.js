@@ -3,7 +3,8 @@ const next = document.getElementById('btn-next');
 const slides = document.querySelectorAll('.slide');
 const dots = document.querySelectorAll('.dot');
 
-let index = 0;
+let slideIndex = 0;
+let interval = '';
 
 const activeSlide = (n) => {
     for (slide of slides) {
@@ -22,39 +23,45 @@ const activeDot = (n) => {
 };
 
 const nextSlide = () => {
-    if (index === slides.length - 1) {
-        index = 0;
-        prepareCurrentSlide(index);
+    if (slideIndex === slides.length - 1) {
+        slideIndex = 0;
+        prepareCurrentSlide(slideIndex);
     } else {
-        index++;
-        prepareCurrentSlide(index);
+        slideIndex++;
+        prepareCurrentSlide(slideIndex);
     };
+
+    clearInterval(interval);
+    interval = setInterval(nextSlide, 5000);
 };
 
-const prevSlide = () => {
-    if (index === 0) {
-        index = slides.length - 1;
-        prepareCurrentSlide(index);
+const previousSlide = () => {
+    if (slideIndex === 0) {
+        slideIndex = slides.length - 1;
+        prepareCurrentSlide(slideIndex);
     } else {
-        index--;
-        prepareCurrentSlide(index);
+        slideIndex--;
+        prepareCurrentSlide(slideIndex);
     };
+
+    clearInterval(interval);
+    interval = setInterval(nextSlide, 5000);
 };
 
-const prepareCurrentSlide = (index) => {
-    activeSlide(index);
-    activeDot(index);
+const prepareCurrentSlide = (slideIndex) => {
+    activeSlide(slideIndex);
+    activeDot(slideIndex);
 };
 
-dots.forEach((item, indexDot) => {
+dots.forEach((item, index) => {
     item.addEventListener('click', () => {
-        index = indexDot;
-        prepareCurrentSlide(index);
+        slideIndex = index;
+        prepareCurrentSlide(slideIndex);
     });
 });
 
 next.addEventListener('click', nextSlide);
-prev.addEventListener('click', prevSlide);
+prev.addEventListener('click', previousSlide);
 
-const interval = setInterval(nextSlide, 2500);
+interval = setInterval(nextSlide, 5000);
 

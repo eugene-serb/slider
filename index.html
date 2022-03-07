@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Eugene Serb – Homepage</title>
+    <title>Eugene Serb – Slider</title>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -10,35 +10,56 @@
 
 </head>
 <body>
-    <h1>My own slider</h1>
-    
-    <div class="flex-wrapper">
-        <div class="slider-wrapper">
-            
-            <div class="slide active">
-                <img src="img/pic-1.jpg" alt="" />
-            </div>
-            <div class="slide">
-                <img src="img/pic-2.jpg" alt="" />
-            </div>
-            <div class="slide">
-                <img src="img/pic-3.jpg" alt="" />
-            </div>
-            <div class="slide">
-                <img src="img/pic-4.jpg" alt="" />
+    <main class="page">
+
+        <h1>Eugene Serb – Slider</h1>
+
+        <div class="slider">
+
+            <div class="slides-wrapper">
+
+                <div class="slide active">
+                    <img class="slide_img" src="img/pic-1.jpg" alt="" />
+                    <article class="slide_content">
+                        <h2>First slide header</h2>
+                        <p>First slider text. Lorem ipsum bla bla</p>
+                    </article>
+                </div>
+                <div class="slide">
+                    <img class="slide_img" src="img/pic-2.jpg" alt="" />
+                    <article class="slide_content">
+                        <h2>Second slide header</h2>
+                        <p>Second slider text. Lorem ipsum bla bla</p>
+                    </article>
+                </div>
+                <div class="slide">
+                    <img class="slide_img" src="img/pic-3.jpg" alt="" />
+                    <article class="slide_content">
+                        <h2>Third slide header</h2>
+                        <p>Third slider text. Lorem ipsum bla bla</p>
+                    </article>
+                </div>
+                <div class="slide">
+                    <img class="slide_img" src="img/pic-4.jpg" alt="" />
+                    <article class="slide_content">
+                        <h2>Fourth slide header</h2>
+                        <p>Fourth slider text. Lorem ipsum bla bla</p>
+                    </article>
+                </div>
+
+                <div id="btn-prev">❮</div>
+                <div id="btn-next">❯</div>
             </div>
 
-            <div id="btn-prev"></div>
-            <div id="btn-next"></div>
+            <div class="dots-wrapper">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+
         </div>
-    </div>
-
-    <div class="dots-wrapper">
-        <span class="dot active"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-    </div>
+    </main>
 
     <script src="js/slider.js"></script>
 </body>
