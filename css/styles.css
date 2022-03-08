@@ -41,15 +41,16 @@ html {
 
 .slide_content {
     position: absolute;
-    top: 0;
-    bottom: 0;
+    top: 10%;
     left: 0;
     right: 0;
     z-index: 10;
     overflow: hidden;
     width: 80%;
     margin: 10% auto;
+    padding: 16px;
     color: #FFFFFF;
+    background-color: rgb(0 0 0 / 40%);
 }
 
 .slides-wrapper .slide {
