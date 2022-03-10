@@ -75,9 +75,10 @@
 /* BUTTONS */
 /* ------- */
 
-#btn-prev, #btn-next {
+#btn-previous, #btn-next {
     position: absolute;
-    left: 0;
+    left: auto;
+    right: auto;
     top: 50%;
     height: 4ch;
     width: 2ch;
@@ -93,9 +94,18 @@
     align-items: center;
 }
 
-    #btn-prev:hover, #btn-next:hover {
+    #btn-previous:hover, #btn-next:hover {
         opacity: 0.8;
     }
+
+    #btn-previous::selection, #btn-next::selection {
+        background-color: transparent;
+    }
+
+#btn-previous {
+    left: 0;
+    right: auto;
+}
 
 #btn-next {
     left: auto;
