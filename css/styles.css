@@ -7,33 +7,33 @@
 /* ------ */
 
 .slides-wrapper {
-    width: 100%;
     position: relative;
+    width: 100%;
 }
 
 .slide {
+    display: none;
     width: 100%;
     height: 100%;
-    display: none;
 }
 
     .slide.active {
         display: block;
     }
 
-    .slide_img {
+    .slide_image {
         width: 100%;
         height: 100%;
     }
 
-.slide_content {
+.slide-content {
     padding: 64px;
     color: var(--color-d);
     background-color: rgb(60 60 60 / 40%);
 }
 
     @media only screen and (min-width: 720px) {
-        .slide_content {
+        .slide-content {
             position: absolute;
             top: 0%;
             left: 0;
@@ -45,7 +45,7 @@
             padding: 32px;
         }
     }
-
+    
     .slide-content__header {
         color: var(--color-d);
     }
@@ -55,8 +55,6 @@
     }
 
 .slides-wrapper .slide {
-    -webkit-animation-name: fade;
-    -webkit-animation-duration: 1.5s;
     animation-name: fade;
     animation-duration: 1.5s;
 }
@@ -80,18 +78,18 @@
     left: auto;
     right: auto;
     top: 50%;
-    height: 4ch;
-    width: 2ch;
-    background-color: var(--color-c);
-    opacity: 0.4;
-    cursor: pointer;
-    transition: opacity 0.2s ease-in-out;
-    color: var(--color-d);
-    font-size: 32px;
-    line-height: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 2ch;
+    height: 4ch;
+    background-color: var(--color-c);
+    opacity: 0.4;
+    color: var(--color-d);
+    font-size: 32px;
+    line-height: 0;
+    cursor: pointer;
+    transition: opacity 0.2s ease-in-out;
 }
 
     #btn-previous:hover, #btn-next:hover {
@@ -104,11 +102,9 @@
 
 #btn-previous {
     left: 0;
-    right: auto;
 }
 
 #btn-next {
-    left: auto;
     right: 0;
 }
 
@@ -123,11 +119,17 @@
 .dot {
     width: 16px;
     height: 16px;
+    margin-right: 16px;
     border-radius: 50%;
     background-color: var(--color-c);
     opacity: 0.4;
-    margin-right: 16px;
     cursor: pointer;
+}
+
+@media (prefers-color-scheme: dark) {
+    .dot {
+        background-color: var(--color-d);
+    }
 }
 
     .dot:last-child {
@@ -135,7 +137,6 @@
     }
 
     .dot.active {
-        background-color: var(--color-c);
         opacity: 1;
     }
 
