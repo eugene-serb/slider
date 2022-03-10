@@ -35,7 +35,7 @@
     overflow: hidden;
     width: 80%;
     margin: 10% auto;
-    padding: 16px;
+    padding: 32px;
     color: var(--color-d);
     background-color: rgb(60 60 60 / 40%);
 }
@@ -74,7 +74,7 @@
     left: 0;
     top: 50%;
     height: 10%;
-    width: 50px;
+    width: 32px;
     background-color: var(--color-c);
     opacity: 0.4;
     cursor: pointer;
@@ -101,16 +101,16 @@
 .dots-wrapper {
     display: flex;
     justify-content: center;
-    margin-top: 15px;
+    margin-top: 16px;
 }
 
 .dot {
-    width: 15px;
-    height: 15px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
     background-color: var(--color-c);
     opacity: 0.4;
-    margin-right: 10px;
+    margin-right: 16px;
     cursor: pointer;
 }
 
