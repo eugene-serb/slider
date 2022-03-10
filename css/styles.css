@@ -27,18 +27,24 @@
     }
 
 .slide_content {
-    position: absolute;
-    top: 10%;
-    left: 0;
-    right: 0;
-    z-index: 10;
-    overflow: hidden;
-    width: 80%;
-    margin: 10% auto;
-    padding: 32px;
+    padding: 64px;
     color: var(--color-d);
     background-color: rgb(60 60 60 / 40%);
 }
+
+    @media only screen and (min-width: 720px) {
+        .slide_content {
+            position: absolute;
+            top: 0%;
+            left: 0;
+            right: 0;
+            z-index: 10;
+            overflow: hidden;
+            width: 75%;
+            margin: 10% auto;
+            padding: 32px;
+        }
+    }
 
     .slide-content__header {
         color: var(--color-d);
@@ -73,8 +79,8 @@
     position: absolute;
     left: 0;
     top: 50%;
-    height: 10%;
-    width: 32px;
+    height: 4ch;
+    width: 2ch;
     background-color: var(--color-c);
     opacity: 0.4;
     cursor: pointer;
