@@ -1,5 +1,10 @@
+/* ------ */
+/* SLIDER */
+/* ------ */
 
-
+/* ------ */
+/* SLIDES */
+/* ------ */
 
 .slides-wrapper {
     width: 100%;
@@ -31,9 +36,17 @@
     width: 80%;
     margin: 10% auto;
     padding: 16px;
-    color: #FFFFFF;
-    background-color: rgb(0 0 0 / 40%);
+    color: var(--color-d);
+    background-color: rgb(60 60 60 / 40%);
 }
+
+    .slide-content__header {
+        color: var(--color-d);
+    }
+
+    .slide-content__text {
+        color: var(--color-d);
+    }
 
 .slides-wrapper .slide {
     -webkit-animation-name: fade;
@@ -52,7 +65,9 @@
     }
 }
 
-/* Buttons */
+/* ------- */
+/* BUTTONS */
+/* ------- */
 
 #btn-prev, #btn-next {
     position: absolute;
@@ -60,11 +75,11 @@
     top: 50%;
     height: 10%;
     width: 50px;
-    background-color: gray;
+    background-color: var(--color-c);
     opacity: 0.4;
     cursor: pointer;
     transition: opacity 0.2s ease-in-out;
-    color: white;
+    color: var(--color-d);
     font-size: 32px;
     line-height: 0;
     display: flex;
@@ -93,7 +108,8 @@
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    background-color: gray;
+    background-color: var(--color-c);
+    opacity: 0.4;
     margin-right: 10px;
     cursor: pointer;
 }
@@ -103,6 +119,7 @@
     }
 
     .dot.active {
-        background-color: #000000;
+        background-color: var(--color-c);
+        opacity: 1;
     }
 
