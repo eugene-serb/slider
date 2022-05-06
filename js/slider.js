@@ -1,67 +1,88 @@
-const PREVIOUS = document.getElementById('btn-previous');
-const NEXT = document.getElementById('btn-next');
-const SLIDES = document.querySelectorAll('.slide');
-const DOTS = document.querySelectorAll('.dot');
+/* ------ */
+/* SLIDER */
+/* ------ */
 
-let slideIndex = 0;
-let interval = '';
+'use strict'
 
-const activeSlide = (n) => {
-    for (slide of SLIDES) {
-        slide.classList.remove('active');
+class Slider {
+    constructor() {
+        this.#configurations();
+        this.#DOMs();
+        this.#eventListeners();
+
+        this.slideIndex = 0;
+        this.interval = 0;
+
+        this.start();
     };
 
-    SLIDES[n].classList.add('active');
-};
-
-const activeDot = (n) => {
-    for (dot of DOTS) {
-        dot.classList.remove('active');
+    start = () => {
+        clearInterval(this.interval);
+        this.interval = setInterval(this.nextSlide, this.SPEED_RATE);
     };
 
-    DOTS[n].classList.add('active');
-};
-
-const nextSlide = () => {
-    if (slideIndex === SLIDES.length - 1) {
-        slideIndex = 0;
-        prepareCurrentSlide(slideIndex);
-    } else {
-        slideIndex++;
-        prepareCurrentSlide(slideIndex);
+    #nextSlide = () => {
+        if (this.slideIndex === this.$SLIDES.length - 1) {
+            this.slideIndex = 0
+            this.#prepareCurrentSlide(this.slideIndex);
+        } else {
+            this.slideIndex++;
+            this.#prepareCurrentSlide(this.slideIndex);
+        };
+        this.start();
+    };
+    #previousSlide = () => {
+        if (this.slideIndex === 0) {
+            this.slideIndex = this.$SLIDES.length - 1;
+            this.#prepareCurrentSlide(this.slideIndex);
+        } else {
+            this.slideIndex--;
+            this.#prepareCurrentSlide(this.slideIndex);
+        };
+        this.start();
     };
 
-    clearInterval(interval);
-    interval = setInterval(nextSlide, 5000);
-};
-
-const previousSlide = () => {
-    if (slideIndex === 0) {
-        slideIndex = SLIDES.length - 1;
-        prepareCurrentSlide(slideIndex);
-    } else {
-        slideIndex--;
-        prepareCurrentSlide(slideIndex);
+    #prepareCurrentSlide = (slideIndex) => {
+        this.#activeSlide(slideIndex);
+        this.#activeDot(slideIndex);
+    };
+    #activeSlide = (n) => {
+        this.$SLIDES.forEach((item) => {
+            item.classList.remove('active');
+        });
+        this.$SLIDES[n].classList.add('active');
+    };
+    #activeDot = (n) => {
+        this.$DOTS.forEach((item) => {
+            item.classList.remove('active');
+        });
+        this.$DOTS[n].classList.add('active');
     };
 
-    clearInterval(interval);
-    interval = setInterval(nextSlide, 5000);
+    #configurations = () => {
+        this.SPEED_RATE = 5000;
+    };
+    #DOMs = () => {
+        this.$PREVIOUS = document.getElementById('btn-previous');
+        this.$NEXT = document.getElementById('btn-next');
+        this.$SLIDES = document.querySelectorAll('.slide');
+        this.$DOTS = document.querySelectorAll('.dot');
+    };
+    #eventListeners = () => {
+        this.$PREVIOUS.addEventListener('click', () => this.#previousSlide());
+        this.$NEXT.addEventListener('click', () => this.#nextSlide());
+        this.$DOTS.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                this.slideIndex = index;
+                this.#prepareCurrentSlide(this.slideIndex);
+            });
+        });
+    };
 };
 
-const prepareCurrentSlide = (slideIndex) => {
-    activeSlide(slideIndex);
-    activeDot(slideIndex);
-};
+/* -------------- */
+/* INITIALIZATION */
+/* -------------- */
 
-DOTS.forEach((item, index) => {
-    item.addEventListener('click', () => {
-        slideIndex = index;
-        prepareCurrentSlide(slideIndex);
-    });
-});
-
-NEXT.addEventListener('click', nextSlide);
-PREVIOUS.addEventListener('click', previousSlide);
-
-interval = setInterval(nextSlide, 5000);
+const SLIDER = new Slider();
 
