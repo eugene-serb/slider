@@ -2,7 +2,7 @@
 /* SLIDER */
 /* ------ */
 
-'use strict'
+'use strict';
 
 class Slider {
     constructor() {
@@ -23,7 +23,7 @@ class Slider {
 
     #nextSlide = () => {
         if (this.slideIndex === this.$SLIDES.length - 1) {
-            this.slideIndex = 0
+            this.slideIndex = 0;
             this.#prepareCurrentSlide(this.slideIndex);
         } else {
             this.slideIndex++;
