@@ -1,7 +1,3 @@
-/* ------ */
-/* SLIDER */
-/* ------ */
-
 'use strict';
 
 class Slider {
@@ -31,6 +27,7 @@ class Slider {
     };
     this.start();
   };
+
   #previousSlide = () => {
     if (this.slideIndex === 0) {
       this.slideIndex = this.$SLIDES.length - 1;
@@ -46,12 +43,14 @@ class Slider {
     this.#activeSlide(slideIndex);
     this.#activeDot(slideIndex);
   };
+
   #activeSlide = (n) => {
     this.$SLIDES.forEach((item) => {
       item.classList.remove('active');
     });
     this.$SLIDES[n].classList.add('active');
   };
+
   #activeDot = (n) => {
     this.$DOTS.forEach((item) => {
       item.classList.remove('active');
@@ -62,12 +61,14 @@ class Slider {
   #configurations = () => {
     this.SPEED_RATE = 5000;
   };
+
   #DOMs = () => {
     this.$PREVIOUS = document.getElementById('btn-previous');
     this.$NEXT = document.getElementById('btn-next');
     this.$SLIDES = document.querySelectorAll('.slide');
     this.$DOTS = document.querySelectorAll('.dot');
   };
+
   #eventListeners = () => {
     this.$PREVIOUS.addEventListener('click', () => this.#previousSlide());
     this.$NEXT.addEventListener('click', () => this.#nextSlide());
@@ -80,9 +81,4 @@ class Slider {
   };
 };
 
-/* -------------- */
-/* INITIALIZATION */
-/* -------------- */
-
 const SLIDER = new Slider();
-
